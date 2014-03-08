@@ -1,0 +1,42 @@
+<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Sorter</title>
+		<style>
+			#drop-target {
+				width:500px;
+				height:500px;
+
+				margin:64px auto;
+				
+				border:1px solid #ccc;
+			}
+
+			#drop-target.hover {
+				border:1px solid #c0c;
+			}
+
+			#drop-target img {
+				max-width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="drop-target">
+			<img/>
+		</div>
+		<script src=dragdrop.js></script>
+		<script>
+			(function() {
+				var tgt = document.getElementById('drop-target'),
+					dragger = new DragDrop(tgt); 
+
+				dragger.onFile = function(args) {
+					tgt.querySelectorAll('img')[0].src = args.url;
+				};
+			})();
+		</script>
+	</body>
+</html>
+
