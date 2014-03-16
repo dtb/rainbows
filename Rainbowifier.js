@@ -39,6 +39,22 @@ Rainbowifier.prototype.sort = function() {
 			bH = b       & 0xFF,
 			bS = b >>  8 & 0xFF,
 			bL = b >> 16 & 0xFF;
+			//diffs = [
+				//aH - bH,
+				//bS - aS,
+				//aL - bL,
+			//],
+			//maxDiff = 0,
+			//maxDiffIdx = 0;
+
+		//for (var i = 0; i < diffs.length; i++) {
+			//if (Math.abs(diffs[i]) > maxDiff) {
+				//maxDiff = Math.abs(diffs[i]);
+				//maxDiffIdx = i;
+			//}
+		//}
+
+		//return diffs[maxDiffIdx];
 
 		if (aS < 90 || bS < 90) {
 			return bS - aS;
