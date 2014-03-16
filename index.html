@@ -8,33 +8,56 @@
 				width:500px;
 				height:500px;
 
-				margin:64px auto;
+				margin:64px auto 0;
 				
 				border:1px solid #ccc;
+			}
+
+			#controls { 
+				width:500px;
+				margin: 0 auto;
+			}
+			#controls button {
+				font-size:18px;
 			}
 
 			#drop-target.hover {
 				border:1px solid #c0c;
 			}
 
+			#drop-target canvas,
 			#drop-target img {
 				max-width:100%;
 			}
 		</style>
 	</head>
 	<body>
-		<div id="drop-target">
+		<div id=drop-target>
 			<img/>
 		</div>
+		<div id=controls>
+			<button class=go>Go!</button>
+		</div>
 		<script src=dragdrop.js></script>
+		<script src=rgbhsl.js></script>
+		<script src=rainbowifier.js></script>
+		<script src=editor.js></script>
 		<script>
 			(function() {
 				var tgt = document.getElementById('drop-target'),
-					dragger = new DragDrop(tgt); 
+					dragger = new DragDrop(tgt),
+					img = tgt.querySelectorAll('img')[0];
 
 				dragger.onFile = function(args) {
-					tgt.querySelectorAll('img')[0].src = args.url;
+					img.src = args.url;
 				};
+
+				document.querySelectorAll('#controls .go')[0].addEventListener('click', function() {
+					var editor = Editor.withImg(img);
+					img.style.display = 'none';
+					img.parentNode.appendChild(editor.canvas);
+					editor.rainbowify();
+				});
 			})();
 		</script>
 	</body>
