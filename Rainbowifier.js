@@ -56,10 +56,6 @@ Rainbowifier.prototype.sort = function() {
 
 		//return diffs[maxDiffIdx];
 
-		if (aS < 90 || bS < 90) {
-			return bS - aS;
-		}
-
 		return aH - bH;
 	});
 
