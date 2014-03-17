@@ -74,20 +74,3 @@ Rainbowifier.prototype.sort = function() {
 		this.rgb32View[i] = rgb32;
 	}
 };
-
-Rainbowifier.prototype.sortFrom = function(i) {
-	var j,
-		tmp,
-		minIndex = i;
-
-	for (j = i; j < this.view.length; j++) {
-		if (this.view[j] < this.view[minIndex]) {
-			minIndex = j;
-		}
-	}
-
-	tmp = this.view[i];
-	this.view[i] = this.view[minIndex];
-	this.view[minIndex] = tmp;
-};
-
