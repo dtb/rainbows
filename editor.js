@@ -1,3 +1,5 @@
+var Rainbowifier = require('./Rainbowifier.js');
+
 var Editor = function(canvas) {
 	this.canvas = canvas;
 	this.context = canvas.getContext('2d');
@@ -25,3 +27,4 @@ Editor.prototype.rainbowify = function() {
 	this.context.putImageData(rainbowifier.imData, 0, 0);
 };
 
+module.exports = Editor;

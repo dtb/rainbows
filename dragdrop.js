@@ -46,3 +46,4 @@ DragDrop.prototype.handleDrop = function(ev) {
 
 DragDrop.prototype.onFile = function() { };
 
+module.exports = DragDrop;

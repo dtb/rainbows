@@ -65,3 +65,8 @@ function hslToRgb(h, s, l){
 
     return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
+
+module.exports = {
+	rgbToHsl: rgbToHsl,
+	hslToRgb: hslToRgb
+}

@@ -38,28 +38,7 @@
 		<div id=controls>
 			<button class=go>Go!</button>
 		</div>
-		<script src=dragdrop.js></script>
-		<script src=rgbhsl.js></script>
-		<script src=Rainbowifier.js></script>
-		<script src=editor.js></script>
-		<script>
-			(function() {
-				var tgt = document.getElementById('drop-target'),
-					dragger = new DragDrop(tgt),
-					img = tgt.querySelectorAll('img')[0];
-
-				dragger.onFile = function(args) {
-					img.src = args.url;
-				};
-
-				document.querySelectorAll('#controls .go')[0].addEventListener('click', function() {
-					var editor = Editor.withImg(img);
-					img.style.display = 'none';
-					img.parentNode.appendChild(editor.canvas);
-					editor.rainbowify();
-				});
-			})();
-		</script>
+		<script src=bundle.js></script>
 	</body>
 </html>
 

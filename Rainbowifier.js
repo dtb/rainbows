@@ -1,3 +1,5 @@
+var rgbhsl = require('./rgbhsl.js');
+
 var Rainbowifier = function(canvas) {
 	this.canvas = canvas;
 	this.context = canvas.getContext('2d');
@@ -13,7 +15,7 @@ Rainbowifier.prototype.getHsl = function() {
 		asHsl;
 
 	for (i = 0; i < this.imData.data.length; i += 4) {
-		asHsl = rgbToHsl(this.imData.data[i], this.imData.data[i + 1], this.imData.data[i + 2]);
+		asHsl = rgbhsl.rgbToHsl(this.imData.data[i], this.imData.data[i + 1], this.imData.data[i + 2]);
 
 		hsl8View[i]     = Math.floor(asHsl[0] * 255);
 		hsl8View[i + 1] = Math.floor(asHsl[1] * 255);
@@ -64,7 +66,7 @@ Rainbowifier.prototype.sort = function() {
 		s = hslData[i] >>  8 & 0xFF;
 		l = hslData[i] >> 16 & 0xFF;
 
-		rgb = hslToRgb(h / 255, s / 255, l / 255);
+		rgb = rgbhsl.hslToRgb(h / 255, s / 255, l / 255);
 
 		rgb32 = rgb[0] |
 			rgb[1] << 8 |
@@ -74,3 +76,5 @@ Rainbowifier.prototype.sort = function() {
 		this.rgb32View[i] = rgb32;
 	}
 };
+
+module.exports = Rainbowifier;
